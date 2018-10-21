@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+{%load bootstrap%}
+{%block content%}
+
+<p class="display-3 text-center">
+    Login
+</p>
+<p class='lead'>Dont have an account, <a href="/blog/signup/">signup</a></p>
+
+<form method="POST">
+    {%csrf_token%}
+    {{form|bootstrap}}
+    <button class="btn btn-primary btn-block btn-lg" type="submit">Login</button>
+</form>
+<br>
+<a href="{%url 'password_reset'%}" class="text-muted">Forgot your password?</a>
+{%endblock%}

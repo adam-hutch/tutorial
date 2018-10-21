@@ -1,0 +1,12 @@
+{% extends "base.html"%}
+
+
+{%block content%}
+                      
+<p class = "display-4">{{post.title}}</p>
+<p class="text-muted">By, {{post.author}} - {{ post.timestamp | date:"d F y" }}</p>
+
+<br>
+<div style="text-align:left; padding:20px;background-color: white; width:100%; border-radius: 10px;">{{post.content}}</div>
+
+{%endblock%}

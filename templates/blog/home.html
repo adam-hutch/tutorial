@@ -1,0 +1,76 @@
+{% extends "base.html"%}
+
+
+{%block content%}
+<style>
+        a {
+            color:black;
+    
+        }
+    
+        a:hover{
+            color:black;
+            text-decoration: none;
+    
+        }
+    
+        .hover {
+            border: 1px solid #e5e6e8;
+            text-decoration: none;
+            transition: 0.5s;
+        }
+        .hover:hover {
+            transition: 0.5s;
+            border: 1px solid #b7b7b7;
+        }
+        input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid white;
+  width:70%;
+  resize: none;
+  transition: 2s;
+  font-size: 35px;
+  text-align: center;
+}
+
+input:focus, input:hover {
+    border-bottom: 1px solid #007bff;
+}
+    </style>
+
+<form action="/blog/" method="GET">
+<input type="text" name='s' placeholder="Search" value='{{ presearch }}'>
+</form>
+<br>
+{% for post in posts %}
+
+
+            <a href='{{ post.slug }}'>
+
+            <div style='border-radius:4px; background-color: #f8f9fa; ' class='hover'>
+                <div class='container'>
+                    <div class='row' style='padding-top:10px;'>
+                        <div class='col'>
+                            <img src="{{post.img_url}}" alt="" width='100%'>                       
+                            <br><br>
+                            <h3>{{ post.title }}</h3>
+
+                            <p class='inline text-muted' style='font-size: 20px;'>{{ post.timestamp | date:"d F y" }} - {{post.author}}</span> </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            </a>
+
+            <br>
+
+            {% endfor %}
+
+{%endblock%}
